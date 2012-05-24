@@ -1,0 +1,85 @@
+$def with (dbre)
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>阿海的Python留言本</title>
+        <link rel="stylesheet" href="/static/css/general.css" media="all"/>
+    </head>
+    <script charset="utf-8" src="/static/editor/kindeditor/kindeditor.js"></script>
+<script>
+        KE.show({
+                id : 'myhtmleditor'
+        });
+</script> 
+    <body>
+        <div id="header">
+            <h1 id="title">You said,I heard!</h1>
+        </div>
+        <div id="general">
+            <div class="row">
+                <label id="realname">网主姓名:</label>
+                <label id="realnameValue">欧耶</label>
+            </div>
+            <div class="row">
+                <label id="titlename">英文名或职称:</label>
+                <label id="titleValue">无</label>
+            </div>
+            <div class="row">
+                <label id="birthday">生日:</label>
+                <label id="birthdayValue">1988年02月24日</label>
+            </div>
+            <div class="row">
+                <label id="phone">电话:</label>
+                <label id="phoneValue">07592475751</label>
+            </div>
+            <div class="row">
+                <label id="mobile">移动电话:</label>
+                <label id="mobileValue">不告诉你！</label>
+            </div>
+            <div class="row">
+                <label id="email">电子邮件:</label>
+                <label id="emailValue">dongnanyanhai@gmail.com</label>
+            </div>
+            <div class="row">
+                <label id="homepage">主页:</label>
+                <label id="homepageValue">
+                    <a href="http://ouou.zxq.net" title="主页">http://ouou.zxq.net/</a>
+                </label>
+            </div>
+            <div class="row">
+                <label id="im">即时通迅:</label>
+                <label id="imValue">QQ:574657454,MSN:dongnanyanhai@126.com</label>
+            </div>
+        </div>
+        <div id="objective">
+            <h2>个人简介：</h2>
+            <p>拒绝鸭梨的杯具草民！</p>
+        </div>
+        <div id="history">
+            <h2>网友留言：</h2>
+            <table width="96%" border="0">
+                $for i in dbre:
+                    <tr><td width="2%" rowspan="2"></td><td width="1%" bgcolor="#C3C300"></td><td width="180" bgcolor="#F0F0F0"> <b> $:i[1]</b>| $:i[2]</td></tr><tr><td colspan="2"><p>$:i[3]</p></td></tr>
+            </table>
+        </div>
+    <div id="awards">
+            <h2>添加留言：</h2>
+
+            <form id="form1" method="post" action="/add">
+              姓名：
+                <input name="uname" type="text" size="15" />
+              <label> 　电子邮件：
+              <input type="text" name="textfield2" />
+              </label>
+              <br />
+              <textarea id="myhtmleditor" name="content" cols="100" rows="8" style="width:610px;height:200px;"></textarea><br />
+              <input type="submit" name="Submit" value="提交" />
+              <input type="reset" name="Submit2" value="重置" />
+            </form>
+        </div>
+        <div id="lastModified">Last Modified: 2010年5月</div>
+        <div id="copyright">&copy; 2010 欧耶</div>
+    </body>
+</html>
