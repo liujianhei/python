@@ -41,4 +41,4 @@ def getBook(url, startOffset, endOffset):
         startOffset += 1
 
 if __name__ == '__main__':
-    getBook(url = 'http://lz.book.sohu.com/chapter-24455-118370', startOffset=236, endOffset=346)
+    getBook(url = 'http://lz.book.sohu.com/chapter-22299-118041', startOffset=687, endOffset=740)
