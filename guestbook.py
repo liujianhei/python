@@ -45,7 +45,7 @@ class sqldb:
                 date text,
                 content text)""")
             self.cu.execute("""insert into msgs values(1, 'Ahai', '2012-05-24 22:52:00', 'Ahi alaws be ok!')""")
+
 if __name__ == "__main__":
     app = web.application(urls, globals())
-    app.run()
-         
+    app.run() 
