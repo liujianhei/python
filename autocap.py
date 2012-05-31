@@ -11,12 +11,12 @@ cu.execute("select name from syscolumns where id=object_id('programinfo')")
 colname = cu.fetchall()
 fplog = open('C:\\xml\log.txt', 'a')
 for res in results:
-#    fp1 = open('D:\\' + res['filename'], 'w')
-#    fp1.write('aaa')
-#    fp1.close()
+    fp1 = open('D:\\' + res['filename'], 'w')
+    fp1.write('aaa')
+    fp1.close()
     if os.path.isfile('D:\\' + res['filename']):
         fplog.write('find file ' + 'D:\\' + res['filename'] + '\n')
-        cmdline = 'copy ' + 'D:\\' + res['filename'] + ' ' + 'C:\\xml\\' + res['filename']
+        cmdline = 'copy ' + 'D:\\' + res['filename'] + ' ' + 'C:\\xml\\' + res['filename'] + ' /-Y'
         print cmdline
         os.system(cmdline)
         fplog.write(cmdline +'\n' + 'move file ' + 'D:\\' + res['filename'] + ' successfull!\n')
