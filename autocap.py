@@ -2,7 +2,7 @@
 import pymssql
 import os
 from xml.dom.minidom import Document
-conn = pymssql.connect(host='222.44.124.120', user='sa', password='kpsoft',database='autocap_szf', as_dict=True)
+conn = pymssql.connect(host='*.*.*.*', user='sa', password='****',database='****', as_dict=True)
 cu = conn.cursor()
 cu.execute("select * from programinfo where delmarker = 1")
 results = cu.fetchall()
