@@ -14,11 +14,11 @@ class Retriever():
         urltuple = urlparse.urlparse(self.url)
 	path = urltuple[1] + urltuple[2]
 	ext = os.path.splitext(path)
-	if ext == '':
-	    if path[-1] == '/':
+	if ext[1] == '':
+	    if path[-1] != '/':
 	        path += '/' +deffile
-	else:
-            path += deffile
+	    else:
+                path += deffile
 	ldir = os.path.dirname(path)
 	if os.sep != '/':
 	    ldir = replace(ldir, '/', os.sep)
