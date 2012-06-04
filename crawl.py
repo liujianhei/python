@@ -20,6 +20,8 @@ class Retriever():
 	else:
             path += deffile
 	ldir = os.path.dirname(path)
+	if os.sep != '/':
+	    ldir = replace(ldir, '/', os.sep)
         if not os.path.isdir(ldir):
             if os.path.exists(ldir): unlink(ldir)
             os.makedirs(ldir)
@@ -35,11 +37,8 @@ class Retriever():
         return retval
 
     def parseAndGetLinks(self):
-        self.parser = HTMLParser(AbstractFormatter(DumbWriter(StringIO)))
-        print self.file
-        fp = open(self.file, 'r')
-        self.parser.feed(fp.read())
-        fp.close()
+        self.parser = HTMLParser(AbstractFormatter(DumbWriter(StringIO())))
+        self.parser.feed(open(self.file).read())
         self.parser.close()
         return self.parser.anchorlist
 
@@ -67,7 +66,7 @@ class Crawler():
                 eachLink = urlparse.urljoin(url, eachLink)
             print '* ', eachLink,
 
-            if find(lower(eachLink, 'mailto:')) != -1:
+            if find(lower(eachLink), 'mailto:') != -1:
                 print '... discarded, mailto link'
                 continue
             if eachLink not in self.seen:
