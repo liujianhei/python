@@ -9,10 +9,12 @@ db = settings.db
 tb = 'todo'
 
 def get_by_id(id):
-    try:
-        return db.select(tb, where='id=$id', vars=locals())
-    except IndexError:
-        return None
+#    try:
+#       return db.select(tb, where='id=$id', vars=locals())
+#    except IndexError:
+#       return None
+    for s in db.select(tb, where='id=$id', vars=locals()):
+        return s
     #s = db.select(tb, where='id=$id', vars=locals())
     #if not s:
     #    return False
